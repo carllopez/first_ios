@@ -38,6 +38,11 @@
     label.alpha = 1.0f;
     
     [UIView commitAnimations];
+    
+    // Basic dynamic change test for latest UI elements
+    self.topLabel.text = @"Top label title";
+    
+    [self.customButton setTitle:@"El clicker" forState:UIControlStateNormal];
 }
 
 -(void)fadeIn
@@ -56,6 +61,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)handleButtonClick:(id)sender {
+    self.topLabel.text = self.customTextField.text;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.customTextField resignFirstResponder];
 }
 
 @end
